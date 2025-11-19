@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  /* Garden Theme - Emerald green primary, warm gold accent */
+  --primary: oklch(0.45 0.15 142);
+  --primary-foreground: oklch(0.98 0 0);
+  --accent: oklch(0.75 0.18 70);
+  --accent-foreground: oklch(0.15 0 0);
+  --secondary: oklch(0.65 0.08 142);
+  --secondary-foreground: oklch(0.15 0 0);
+  --background: oklch(0.98 0.01 70);
+  --foreground: oklch(0.15 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0 0);
+  --muted: oklch(0.88 0.02 70);
+  --muted-foreground: oklch(0.45 0 0);
+  --border: oklch(0.92 0.01 70);
+  --input: oklch(0.95 0.01 70);
+  --ring: oklch(0.45 0.15 142);
+  --radius: 0.625rem;
+
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark {
+  --primary: oklch(0.65 0.12 142);
+  --primary-foreground: oklch(0.98 0 0);
+  --accent: oklch(0.75 0.18 70);
+  --accent-foreground: oklch(0.15 0 0);
+  --secondary: oklch(0.5 0.08 142);
+  --secondary-foreground: oklch(0.95 0 0);
+  --background: oklch(0.12 0 0);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.18 0 0);
+  --card-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.3 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --border: oklch(0.25 0 0);
+  --input: oklch(0.22 0 0);
+  --ring: oklch(0.65 0.12 142);
+}
+
+@layer base {
+  * {
+    @apply border-[color:var(--border)];
+  }
+  body {
+    @apply bg-[color:var(--background)] text-[color:var(--foreground)] font-sans antialiased;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+  }
+}
+
+/* Custom animations from garden dapp */
+@keyframes slide-in-down {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-slide-in-down {
+  animation: slide-in-down 0.5s ease-out;
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 0.5s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
